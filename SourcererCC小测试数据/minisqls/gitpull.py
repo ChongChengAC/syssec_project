@@ -11,10 +11,10 @@ with open("projects_url.txt") as f:
         download_url = "https://codeload.github.com/" + \
             repo_name.rstrip() + "/zip/refs/heads/master"
         print("download url: <" + download_url + ">")
-        # raw_file = requests.get(download_url)
+        raw_file = requests.get(download_url)
         zip_name = owner_name + "_" + dir_name + ".zip"
-        # with open(zip_name, "wb") as zip_file:
-            # zip_file.write(raw_file.content)
+        with open(zip_name, "wb") as zip_file:
+            zip_file.write(raw_file.content)
 
         cwd = os.getcwd()
         project_list.write(cwd + "/" + zip_name + "\n")
